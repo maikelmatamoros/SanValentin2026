@@ -856,9 +856,9 @@ body {
     
     .letter {
         width: 92vw;
-        max-height: 80vh;
+        max-height: 88vh;
         min-height: auto;
-        height: 80vh;
+        height: 88vh;
         overflow: hidden;
     }
     
@@ -869,11 +869,13 @@ body {
     }
     
     .page-navigation {
-        bottom: 20px;
+        position: fixed;
+        bottom: 5vh;
         gap: 12px;
         padding: 10px 15px;
         background: rgba(255, 255, 255, 0.98);
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+        z-index: 100;
     }
     
     .nav-button {
@@ -890,7 +892,7 @@ body {
     }
     
     .letter-page {
-        padding: 25px 18px 90px 18px;
+        padding: 25px 18px 120px 18px;
         min-height: auto;
     }
     
@@ -921,7 +923,7 @@ body {
     }
     
     .timeless-container {
-        padding: 25px 18px 90px 18px;
+        padding: 25px 18px 120px 18px;
         align-items: center;
         min-height: auto;
     }
