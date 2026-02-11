@@ -1002,6 +1002,27 @@ body {
     }
 }
 
+@media (max-width: 1024px) and (max-height: 780px) {
+    .letter {
+        height: 78vh;
+        height: 78dvh;
+        max-height: 78vh;
+        max-height: 78dvh;
+    }
+    
+    .page-navigation {
+        bottom: 12vh;
+    }
+    
+    .letter-page {
+        padding-bottom: 170px;
+    }
+    
+    .timeless-container {
+        padding-bottom: 170px;
+    }
+}
+
 /* Ajustes para pantallas móviles muy pequeñas */
 @media (max-width: 400px) {
     .instruction {
