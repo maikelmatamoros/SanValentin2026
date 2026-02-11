@@ -829,6 +829,10 @@ body {
 /* Responsive para móviles y tablets */
 @media (max-width: 1024px) {
     body {
+        align-items: center;
+    }
+
+    body.letter-open {
         align-items: flex-start;
     }
 
