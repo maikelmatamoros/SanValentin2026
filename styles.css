@@ -856,9 +856,9 @@ body {
     
     .letter {
         width: 92vw;
-        max-height: 88vh;
+        max-height: 92vh;
         min-height: auto;
-        height: 88vh;
+        height: 92vh;
         overflow: hidden;
     }
     
@@ -870,7 +870,7 @@ body {
     
     .page-navigation {
         position: fixed;
-        bottom: 8vh;
+        bottom: calc(2vh + env(safe-area-inset-bottom));
         gap: 12px;
         padding: 12px 18px;
         background: rgba(255, 255, 255, 0.98);
