@@ -1004,22 +1004,22 @@ body {
 
 @media (max-width: 1024px) and (max-height: 780px) {
     .letter {
-        height: 78vh;
-        height: 78dvh;
-        max-height: 78vh;
-        max-height: 78dvh;
+        height: 88vh;
+        height: 88dvh;
+        max-height: 88vh;
+        max-height: 88dvh;
     }
     
     .page-navigation {
-        bottom: 12vh;
+        bottom: 4vh;
     }
     
     .letter-page {
-        padding-bottom: 170px;
+        padding-bottom: 140px;
     }
     
     .timeless-container {
-        padding-bottom: 170px;
+        padding-bottom: 140px;
     }
 }
 
