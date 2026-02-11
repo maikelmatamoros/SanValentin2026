@@ -316,7 +316,7 @@ body {
 }
 
 /* En móvil, layout vertical */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .letter-content-wrapper.active {
         flex-direction: column;
     }
@@ -827,7 +827,7 @@ body {
 }
 
 /* Responsive para móviles y tablets */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .instruction {
         top: 25px;
         font-size: 1.5em;
@@ -1039,7 +1039,7 @@ body {
 }
 
 /* Desktop - tamaños más grandes */
-@media (min-width: 901px) {
+@media (min-width: 1025px) {
     .instruction {
         top: 50px;
         font-size: 2em;
