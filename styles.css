@@ -826,8 +826,34 @@ body {
     line-height: 1.6;
 }
 
-/* Responsive para móviles pequeños */
-@media (max-width: 600px) {
+/* Responsive para móviles y tablets */
+@media (max-width: 900px) {
+    .instruction {
+        top: 25px;
+        font-size: 1.5em;
+    }
+    
+    .envelope {
+        width: 280px;
+        height: 175px;
+    }
+    
+    .envelope-flap {
+        border-left: 140px solid transparent;
+        border-right: 140px solid transparent;
+        border-top: 87.5px solid #d4c5a9;
+    }
+    
+    .wax-seal {
+        width: 57px;
+        height: 57px;
+        top: 65px;
+    }
+    
+    .seal-inner {
+        font-size: 1.85em;
+    }
+    
     .letter {
         width: 92vw;
         max-height: 85vh;
@@ -974,42 +1000,39 @@ body {
     }
 }
 
-/* Responsive para tablets y pantallas medianas */
-@media (min-width: 601px) and (max-width: 900px) {
+/* Ajustes para pantallas móviles muy pequeñas */
+@media (max-width: 400px) {
     .instruction {
-        top: 30px;
-        font-size: 1.6em;
+        font-size: 1.3em;
     }
     
     .envelope {
-        width: 280px;
-        height: 175px;
+        width: 260px;
+        height: 162px;
     }
     
     .envelope-flap {
-        border-left: 140px solid transparent;
-        border-right: 140px solid transparent;
-        border-top: 87.5px solid #d4c5a9;
+        border-left: 130px solid transparent;
+        border-right: 130px solid transparent;
+        border-top: 81px solid #d4c5a9;
     }
     
     .wax-seal {
-        width: 57px;
-        height: 57px;
-        top: 65px;
+        width: 55px;
+        height: 55px;
+        top: 60px;
     }
     
     .seal-inner {
-        font-size: 1.85em;
-    }
-    
-    .letter {
-        width: 85vw;
-        max-width: 750px;
-        max-height: 80vh;
+        font-size: 1.7em;
     }
     
     .letter-header {
-        font-size: 2.3em;
+        font-size: 1.6em;
+    }
+    
+    .timeless-title {
+        font-size: 1.6em;
     }
 }
 
