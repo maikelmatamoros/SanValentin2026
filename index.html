@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>💕 De Mi, Para Ti 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="petalsCanvas"></canvas>
+    
+    <!-- Control de audio -->
+    <div class="audio-control" id="audioControl">
+        <button id="musicToggle" class="music-button">
+            <span class="music-icon">♫</span>
+        </button>
+    </div>
+    
+    <div class="instruction">Haz click en el sobre 💌</div>
+    
+    <div class="envelope-container" id="envelopeContainer">
+        <div class="envelope" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body"></div>
+            <div class="wax-seal">
+                <div class="seal-inner">❤</div>
+            </div>
+        </div>
+        
+        <div class="letter" id="letter">
+            <!-- Página 1-2: Carta de amor -->
+            <div class="letter-content-wrapper page-1 active">
+                <div class="letter-page left">
+                    <div class="letter-header">De Mi, Para Ti</div>
+                    
+                    <div class="letter-text">
+                        <p>En este San Valentin quiero que sepas que cada momento a tu lado es un regalo.</p>
+                        
+                        <p>Eres la razón de mis sonrisas, la luz en mis días grises, y el sueño que nunca quiero despertar.</p>
+                        
+                        <p>Cada día que pasa teniendote en mi vida reafirma que soy el hombre con más suerte en el mundo.</p>
+                        
+                        <p class="secret-message" data-secret="Mi vida es mejor contigo en ella">✨</p>
+                    </div>
+                </div>
+                
+                <div class="letter-page right">
+                    <div class="letter-text">
+                        <p>Gracias por ser tú, por estar aquí, por hacerme la persona más feliz del mundo.</p>
+                        
+                        <p class="letter-emphasis">Te amo más de lo que las palabras pueden expresar.</p>
+                    </div>
+                    
+                    <div class="letter-signature">
+                        Con todo mi amor,<br>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Página 2: Mensaje romántico sobre tiempo infinito -->
+            <div class="letter-content-wrapper page-2">
+                <div class="letter-page left">
+                    <div class="timeless-container">
+                        <div class="infinity-symbol">∞</div>
+                        
+                        <h2 class="timeless-title">Contigo, el Tiempo se Detuvo</h2>
+                        
+                        <div class="timeless-quote">
+                            <p>Han pasado tantos años a tu lado...</p>
+                            <p>Que ya no recuerdo cómo era mi vida antes de ti.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="letter-page right">
+                    <div class="timeless-container">
+                        <div class="timeless-verses">
+                            <p class="verse">Eres mi primera memoria,</p>
+                            <p class="verse">mi constante presente,</p>
+                            <p class="verse">y mi único futuro imaginable.</p>
+                        </div>
+                        
+                        <div class="timeless-emphasis">
+                            <p class="secret-message" data-secret="Porque donde estás tú, está mi hogar 🏡">💫</p>
+                            <p>El tiempo contigo...</p>
+                            <p><strong>Es el regalo más grande.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Página 4: Razones de amor -->
+            <div class="letter-content-wrapper page-3">
+                <div class="letter-page full">
+                    <div class="reasons-header">
+                        <h2>Razones por las que Te Amo</h2>
+                        <p class="reasons-subtitle">Son infinitas, pero aquí están algunas...</p>
+                    </div>
+                    
+                    <div class="reasons-list">
+                        <div class="reason-item">
+                            <span class="reason-number">1.</span>
+                            <span class="reason-text">Tu sonrisa ilumina incluso mis días más grises</span>
+                        </div>
+                        <div class="reason-item">
+                            <span class="reason-number">2.</span>
+                            <span class="reason-text">Tus ojitos hermosos que me enamoran cada día</span>
+                        </div>
+                        <div class="reason-item">
+                            <span class="reason-number">3.</span>
+                            <span class="reason-text">Tu mirada que lo dice todo sin necesidad de palabras</span>
+                        </div>
+                        <div class="reason-item secret-message" data-secret="4. Porque eres el amor de mi vida y mi mejor decisión ❤">
+                            <span class="reason-number">?</span>
+                            <span class="reason-text">Pasa el cursor aquí para descubrir...</span>
+                        </div>
+                        <div class="reason-item">
+                            <span class="reason-number">5.</span>
+                            <span class="reason-text">Tu paciencia infinita conmigo</span>
+                        </div>
+                        <div class="reason-item">
+                            <span class="reason-number">6.</span>
+                            <span class="reason-text">Tu carita toda linda que me derrite</span>
+                        </div>
+                        <div class="reason-item">
+                            <span class="reason-number">7.</span>
+                            <span class="reason-text">Cuando paso tiempo contigo, todo es mejor</span>
+                        </div>
+                        <div class="reason-item">
+                            <span class="reason-number">8.</span>
+                            <span class="reason-text">Simplemente por ser tú</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navegación entre páginas -->
+            <div class="page-navigation" id="pageNav">
+                <button class="nav-button prev" id="prevPage">❮</button>
+                <div class="page-indicator">
+                    <span class="page-dot active" data-page="1"></span>
+                    <span class="page-dot" data-page="2"></span>
+                    <span class="page-dot" data-page="3"></span>
+                </div>
+                <button class="nav-button next" id="nextPage">❯</button>
+            </div>
+            
+            <!-- Botón para cerrar la carta -->
+            <button class="close-letter-btn" id="closeLetter" title="Cerrar carta">
+                <span>✕</span>
+            </button>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
