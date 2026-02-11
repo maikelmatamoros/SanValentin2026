@@ -348,12 +348,18 @@ function animatePetals() {
 
 animatePetals();
 
-// Manejar click en el sobre
+// Manejar click y touch en el sobre
 envelope.addEventListener('click', openEnvelope);
+envelope.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    openEnvelope();
+});
 
 function openEnvelope() {
     if (isOpened) return;
     isOpened = true;
+    
+    console.log('Abriendo sobre...');
     
     // Iniciar navegación de páginas después de ver la carta
     setTimeout(() => {
@@ -413,9 +419,15 @@ function openEnvelope() {
         duration: 1,
         delay: 1.5,
         ease: 'back.out(1.2)',
+        onStart: () => {
+            console.log('Iniciando animación de carta...');
+            letter.style.display = 'flex';
+        },
         onComplete: () => {
+            console.log('Animación de carta completada');
             // Asegurar que la carta esté correctamente posicionada después de la animación
             letter.style.transform = 'translate(-50%, -50%) scale(1)';
+            letter.style.opacity = '1';
         }
     });
     
