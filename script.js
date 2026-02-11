@@ -360,6 +360,7 @@ function openEnvelope() {
     isOpened = true;
     
     console.log('Abriendo sobre...');
+    document.body.classList.add('letter-open');
     
     // Iniciar navegación de páginas después de ver la carta
     setTimeout(() => {
@@ -426,7 +427,10 @@ function openEnvelope() {
         onComplete: () => {
             console.log('Animación de carta completada');
             // Asegurar que la carta esté correctamente posicionada después de la animación
-            letter.style.transform = 'translate(-50%, -50%) scale(1)';
+            const isMobileViewport = window.innerWidth <= 1024;
+            letter.style.transform = isMobileViewport
+                ? 'translate(-50%, 0) scale(1)'
+                : 'translate(-50%, -50%) scale(1)';
             letter.style.opacity = '1';
         }
     });
@@ -745,7 +749,11 @@ function closeLetter() {
         opacity: 0,
         scale: 0,
         duration: 0.8,
-        ease: 'back.in(1.2)'
+        ease: 'back.in(1.2)',
+        onComplete: () => {
+            document.body.classList.remove('letter-open');
+            letter.style.transform = 'translate(-50%, -50%) scale(0)';
+        }
     });
     
     // Restaurar sobre

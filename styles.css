@@ -828,6 +828,10 @@ body {
 
 /* Responsive para móviles y tablets */
 @media (max-width: 1024px) {
+    body {
+        align-items: flex-start;
+    }
+
     .instruction {
         top: 25px;
         font-size: 1.5em;
@@ -860,6 +864,11 @@ body {
         min-height: auto;
         height: 92vh;
         overflow: hidden;
+    }
+
+    body.letter-open .letter {
+        top: 8px;
+        transform: translate(-50%, 0) scale(0);
     }
     
     .letter-content-wrapper {
