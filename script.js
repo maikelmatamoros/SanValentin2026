@@ -404,10 +404,11 @@ function openEnvelope() {
         transformOrigin: 'top center'
     });
     
-    // Mover sobre hacia arriba y hacerlo más pequeño
+    // Mover sobre en desktop; mantener centrado en movil
+    const isMobileViewport = window.innerWidth <= 1024;
     gsap.to(envelope, {
-        y: -100,
-        scale: 0.8,
+        y: isMobileViewport ? 0 : -100,
+        scale: isMobileViewport ? 1 : 0.8,
         duration: 1,
         delay: 1.2,
         ease: 'power2.inOut'
