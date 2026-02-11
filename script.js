@@ -678,6 +678,8 @@ function changePage(newPage) {
     // Primero ocultar TODAS las páginas
     document.querySelectorAll('.letter-content-wrapper').forEach(wrapper => {
         wrapper.classList.remove('active');
+        // Reset scroll position
+        wrapper.scrollTop = 0;
     });
     
     // Luego mostrar solo la nueva página
@@ -690,8 +692,8 @@ function changePage(newPage) {
         currentPage = newPage;
         updateNavigation();
         
-        // Scroll al tope de la carta
-        letter.scrollTop = 0;
+        // Asegurar que el scroll esté arriba
+        newWrapper.scrollTop = 0;
         
         // Reiniciar animaciones de la página cuando se activa
         if (newPage === 2) {

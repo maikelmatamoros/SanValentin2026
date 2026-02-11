@@ -831,8 +831,15 @@ body {
     .letter {
         width: 92vw;
         max-height: 85vh;
-        min-height: 800px;
-        height: auto;
+        min-height: auto;
+        height: 85vh;
+        overflow: hidden;
+    }
+    
+    .letter-content-wrapper {
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     
     .page-navigation {
@@ -857,14 +864,15 @@ body {
     }
     
     .letter-page {
-        padding: 35px 25px 80px 25px;
+        padding: 30px 20px 100px 20px;
+        min-height: auto;
     }
     
     .letter-page::before {
-        top: 20px;
-        left: 15px;
-        right: 15px;
-        bottom: 20px;
+        top: 18px;
+        left: 12px;
+        right: 12px;
+        bottom: 18px;
     }
     
     .letter-header {
@@ -887,8 +895,9 @@ body {
     }
     
     .timeless-container {
-        padding: 35px 25px 80px 25px;
+        padding: 30px 20px 100px 20px;
         align-items: center;
+        min-height: auto;
     }
     
     .page-2 .letter-page.left .timeless-container,
@@ -956,8 +965,8 @@ body {
     
     .reasons-list {
         gap: 8px;
-        padding-bottom: 80px;
-        max-height: calc(88vh - 250px);
+        padding-bottom: 20px;
+        max-height: none;
     }
     
     .reason-item {
