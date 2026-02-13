@@ -404,28 +404,39 @@ function openEnvelope() {
         transformOrigin: 'top center'
     });
     
-    // Mover sobre en desktop; mantener centrado en movil
+    // Mover sobre en desktop; ocultarlo en movil
     const isMobileViewport = window.innerWidth <= 1024;
     
-    // Establecer posición inicial correcta ANTES de animar
-    // Esto fija el cache de GSAP para que la carta crezca desde arriba (móvil) o centro (desktop)
+    // Posicionar la carta ANTES de animar
+    // Móvil: arriba de la pantalla | Desktop: centrada
     if (isMobileViewport) {
         letter.style.top = '4px';
-        gsap.set(letter, { xPercent: -50, yPercent: 0, scale: 0, opacity: 0 });
+        letter.style.left = '50%';
+        letter.style.transform = 'translate(-50%, 0) scale(0)';
     } else {
         letter.style.top = '50%';
-        gsap.set(letter, { xPercent: -50, yPercent: -50, scale: 0, opacity: 0 });
+        letter.style.left = '50%';
+        letter.style.transform = 'translate(-50%, -50%) scale(0)';
     }
+    letter.style.opacity = '0';
+    letter.style.display = 'flex';
     
+    // En móvil, desvanecer el sobre; en desktop, moverlo arriba
     gsap.to(envelope, {
-        y: isMobileViewport ? 0 : -100,
-        scale: isMobileViewport ? 1 : 0.8,
+        opacity: isMobileViewport ? 0 : 1,
+        y: isMobileViewport ? -30 : -100,
+        scale: isMobileViewport ? 0.8 : 0.8,
         duration: 1,
         delay: 1.2,
-        ease: 'power2.inOut'
+        ease: 'power2.inOut',
+        onComplete: () => {
+            if (isMobileViewport) {
+                envelope.style.display = 'none';
+            }
+        }
     });
     
-    // Mostrar la carta saliendo del sobre
+    // Mostrar la carta — crece desde su posición ya fijada
     gsap.to(letter, {
         opacity: 1,
         scale: 1,
@@ -434,10 +445,15 @@ function openEnvelope() {
         ease: 'back.out(1.2)',
         onStart: () => {
             console.log('Iniciando animación de carta...');
-            letter.style.display = 'flex';
         },
         onComplete: () => {
             console.log('Animación de carta completada');
+            // Fijar transform final limpio
+            if (isMobileViewport) {
+                letter.style.transform = 'translate(-50%, 0) scale(1)';
+            } else {
+                letter.style.transform = 'translate(-50%, -50%) scale(1)';
+            }
             letter.style.opacity = '1';
         }
     });
@@ -759,14 +775,19 @@ function closeLetter() {
         ease: 'back.in(1.2)',
         onComplete: () => {
             document.body.classList.remove('letter-open');
-            // Resetear posición y cache de GSAP al estado inicial centrado
+            // Resetear posición al estado inicial (centrado, oculta)
             letter.style.top = '50%';
-            gsap.set(letter, { xPercent: -50, yPercent: -50, scale: 0, opacity: 0 });
+            letter.style.left = '50%';
+            letter.style.transform = 'translate(-50%, -50%) scale(0)';
+            letter.style.opacity = '0';
+            letter.style.display = 'none';
         }
     });
     
-    // Restaurar sobre
+    // Restaurar sobre (mostrarlo de nuevo si estaba oculto en móvil)
+    envelope.style.display = '';
     gsap.to(envelope, {
+        opacity: 1,
         y: 0,
         scale: 1,
         duration: 1,
