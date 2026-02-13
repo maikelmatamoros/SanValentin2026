@@ -10,7 +10,9 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #fef6f8 0%, #fff 50%, #fef8fa 100%);
+    background: linear-gradient(135deg, #fef6f8, #fce4ec, #fff0f5, #fef6f8, #f8e8ee, #fef6f8);
+    background-size: 300% 300%;
+    animation: gradientBreath 15s ease-in-out infinite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +23,13 @@ body {
     /* Prevenir scroll bounce en iOS */
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
+}
+
+@keyframes gradientBreath {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 50% 0%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 100%; }
 }
 
 #petalsCanvas {
@@ -256,6 +265,8 @@ body {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .letter-content-wrapper.active {

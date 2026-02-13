@@ -700,48 +700,34 @@ function initPageNavigation() {
 function changePage(newPage) {
     if (newPage < 1 || newPage > totalPages || newPage === currentPage) return;
     
-    console.log('Cambiando de página', currentPage, 'a', newPage);
-    
-    // Primero ocultar TODAS las páginas
+    // Ocultar todas las páginas
     document.querySelectorAll('.letter-content-wrapper').forEach(wrapper => {
         wrapper.classList.remove('active');
-        // Reset scroll position
         wrapper.scrollTop = 0;
     });
     
-    // Luego mostrar solo la nueva página
+    // Mostrar nueva página
     const newWrapper = document.querySelector(`.page-${newPage}`);
     if (newWrapper) {
-        console.log('Activando página', newPage);
         newWrapper.classList.add('active');
-        
-        // Actualizar número de página
         currentPage = newPage;
         updateNavigation();
-        
-        // Asegurar que el scroll esté arriba
         newWrapper.scrollTop = 0;
         
-        // Reiniciar animaciones de la página cuando se activa
+        // Reiniciar animaciones
         if (newPage === 2) {
-            // Reiniciar animaciones de versos
-            const verses = newWrapper.querySelectorAll('.verse');
-            verses.forEach(verse => {
+            newWrapper.querySelectorAll('.verse').forEach(verse => {
                 verse.style.animation = 'none';
-                verse.offsetHeight; // trigger reflow
+                verse.offsetHeight;
                 verse.style.animation = '';
             });
         } else if (newPage === 3) {
-            // Reiniciar animaciones de razones
-            const reasons = newWrapper.querySelectorAll('.reason-item');
-            reasons.forEach(reason => {
+            newWrapper.querySelectorAll('.reason-item').forEach(reason => {
                 reason.style.animation = 'none';
-                reason.offsetHeight; // trigger reflow
+                reason.offsetHeight;
                 reason.style.animation = '';
             });
         }
-    } else {
-        console.error('No se encontró la página', newPage);
     }
 }
 
