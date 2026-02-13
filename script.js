@@ -406,6 +406,17 @@ function openEnvelope() {
     
     // Mover sobre en desktop; mantener centrado en movil
     const isMobileViewport = window.innerWidth <= 1024;
+    
+    // Establecer posición inicial correcta ANTES de animar
+    // Esto fija el cache de GSAP para que la carta crezca desde arriba (móvil) o centro (desktop)
+    if (isMobileViewport) {
+        letter.style.top = '4px';
+        gsap.set(letter, { xPercent: -50, yPercent: 0, scale: 0, opacity: 0 });
+    } else {
+        letter.style.top = '50%';
+        gsap.set(letter, { xPercent: -50, yPercent: -50, scale: 0, opacity: 0 });
+    }
+    
     gsap.to(envelope, {
         y: isMobileViewport ? 0 : -100,
         scale: isMobileViewport ? 1 : 0.8,
@@ -414,7 +425,7 @@ function openEnvelope() {
         ease: 'power2.inOut'
     });
     
-    // Mostrar la carta saliendo del sobre - mantener centrada
+    // Mostrar la carta saliendo del sobre
     gsap.to(letter, {
         opacity: 1,
         scale: 1,
@@ -427,11 +438,6 @@ function openEnvelope() {
         },
         onComplete: () => {
             console.log('Animación de carta completada');
-            // Asegurar que la carta esté correctamente posicionada después de la animación
-            const isMobileViewport = window.innerWidth <= 1024;
-            letter.style.transform = isMobileViewport
-                ? 'translate(-50%, 0) scale(1)'
-                : 'translate(-50%, -50%) scale(1)';
             letter.style.opacity = '1';
         }
     });
@@ -753,7 +759,9 @@ function closeLetter() {
         ease: 'back.in(1.2)',
         onComplete: () => {
             document.body.classList.remove('letter-open');
-            letter.style.transform = 'translate(-50%, -50%) scale(0)';
+            // Resetear posición y cache de GSAP al estado inicial centrado
+            letter.style.top = '50%';
+            gsap.set(letter, { xPercent: -50, yPercent: -50, scale: 0, opacity: 0 });
         }
     });
     
