@@ -379,10 +379,10 @@ body {
 }
 
 .letter-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95em;
-    line-height: 1.7;
-    color: #333;
+    font-family: 'Lora', 'Playfair Display', serif;
+    font-size: 1em;
+    line-height: 1.8;
+    color: #2c2c2c;
     margin-bottom: 20px;
     /* flex: 1; */
 }
@@ -399,6 +399,7 @@ body {
 }
 
 .letter-emphasis {
+    font-family: 'Lora', serif;
     font-size: 1.15em;
     font-weight: 600;
     font-style: italic;
@@ -657,10 +658,10 @@ body {
 }
 
 .timeless-quote {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
     font-size: 1.1em;
-    color: #333;
-    line-height: 1.7;
+    color: #2c2c2c;
+    line-height: 1.8;
     margin-bottom: 30px;
     font-style: italic;
     text-align: center;
@@ -706,9 +707,9 @@ body {
 }
 
 .timeless-emphasis {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
     font-size: 1.15em;
-    color: #333;
+    color: #2c2c2c;
     line-height: 2;
     margin-top: 30px;
     padding-top: 25px;
@@ -827,10 +828,10 @@ body {
 }
 
 .reason-text {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
     font-size: 1em;
-    color: #333;
-    line-height: 1.6;
+    color: #2c2c2c;
+    line-height: 1.7;
 }
 
 /* Responsive para móviles y tablets */
